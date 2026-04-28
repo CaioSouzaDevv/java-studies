@@ -64,6 +64,15 @@ public class Main {
         if (!atualizado) {
             System.out.println("Id não encontrado");
         }
+
+        int idDeletar = 2;
+
+        boolean removido = listaProdutos.removeIf(produto -> produto.id == idDeletar);
+
+        if (!removido) {
+            System.out.println("id Não encontrado para remoção");
+        }
+
         for (Produto produto : listaProdutos) {
             produto.exibirDetalhes();
         }
