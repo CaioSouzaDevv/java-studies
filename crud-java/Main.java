@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -19,10 +21,71 @@ public class Main {
         service.adicionarProduto(p1);
         service.adicionarProduto(p2);
 
-        service.buscaProduto("Caneta Azul");
-        service.atualizaProduto(1);
-        service.deleteProduto(2);
         service.mostraProduto();
+
+        Scanner menu = new Scanner(System.in);
+
+        int escolha = -1;
+
+        while (escolha != 0) {
+            System.err.println("Menu");
+            System.err.println("0- Sair");
+            System.err.println("1- Buscar Produto por nome");
+            System.err.println("2- Atualizar Produto por ID");
+            System.err.println("3- Deletar Produto por ID");
+            System.err.println("4- Lista Produto");
+
+            System.err.println("Escolha uma opção");
+
+            if (menu.hasNextInt()) {
+                escolha = menu.nextInt();
+
+                switch (escolha) {
+                    case 0:
+                        break;
+                    case 1:
+                        menu.nextLine();
+                        System.out.println("Digite o nome do produto");
+                        String nome = menu.nextLine();
+                        service.buscaProduto(nome);
+                        escolha = 0;
+                        break;
+
+                    case 2:
+                        menu.nextLine();
+                        System.out.println("Digite o número do id");
+                        int idRecebido = menu.nextInt();
+                        menu.nextLine();
+
+                        System.out.println("Digite o novo nome");
+                        String novoNome = menu.nextLine();
+
+                        service.atualizaProduto(idRecebido, novoNome);
+
+                        escolha = 0;
+
+                        break;
+
+                    case 3:
+                        menu.nextLine();
+                        System.out.println("Digite o id para deletar");
+                        int idDeletar = menu.nextInt();
+                        service.deleteProduto(idDeletar);
+                        service.mostraProduto();
+                        escolha = 0;
+                        break;
+
+                    case 4:
+                        service.mostraProduto();
+                        break;
+
+                    default:
+                        break;
+                }
+            } else {
+                System.out.println("Escolha uma opção");
+            }
+        }
     }
 
 }

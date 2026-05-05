@@ -26,14 +26,15 @@ public class ProdutoService {
         }
     }
 
-    public void atualizaProduto(int idRecebido) {
+    public void atualizaProduto(int idRecebido, String novoNome) {
 
         boolean idAtualizado = false;
 
         for (Produto atualizaproduto : listaProdutos) {
             if (idRecebido == atualizaproduto.id) {
 
-                atualizaproduto.nome = "Caneta azul foi renomeada e passa a ser rosa";
+                atualizaproduto.nome = novoNome;
+                System.err.println("Novo nome atualizado " + novoNome);
                 idAtualizado = true;
             }
 
@@ -49,6 +50,8 @@ public class ProdutoService {
         boolean removido = listaProdutos.removeIf(produto -> produto.id == idDeletar);
         if (!removido) {
             System.out.println("Id Não encontrado");
+        } else {
+            System.out.println("Produto deletado");
         }
     }
 
