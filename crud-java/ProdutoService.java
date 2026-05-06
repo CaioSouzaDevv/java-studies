@@ -73,9 +73,14 @@ public class ProdutoService {
     }
 
     public void mostraProduto() {
+           if(listaProdutos.isEmpty()) {
+                System.out.println("Não temos produtos cadastrados");
+            }
         for (Produto produto : listaProdutos) {
+           
             produto.exibirDetalhes();
         }
+      
     }
 
 }
