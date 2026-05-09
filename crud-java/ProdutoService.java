@@ -54,7 +54,6 @@ public class ProdutoService {
 
     public void atualizaProduto(int idRecebido, String novoNome, double novoPreco, int novaQtd) {
 
-        boolean idEncontrado = false;
         if (novoNome.isBlank()) {
             System.out.println("Digite um nome válido");
             return;
@@ -76,15 +75,16 @@ public class ProdutoService {
                 produto.nome = novoNome;
                 produto.preco = novoPreco;
                 produto.quantidade = novaQtd;
-                System.out.println("Produto renomeado para " + novoNome);
-                System.out.println("Produto com novo preço " + novoPreco);
-                System.out.println("Nova quantidade disponivel " + novaQtd);
-                idEncontrado = true;
+                System.out.println("------------------------------");
+                System.out.println("Produto atualizado com sucesso.");
+                System.out.println("Nome:" + novoNome);
+                System.out.println("Preço: " + novoPreco);
+                System.out.println("Quantidade:  " + novaQtd);
+                return;
             }
         }
-        if (!idEncontrado) {
             System.out.println("Id não encontrado");
-        }
+      
 
     }
 
