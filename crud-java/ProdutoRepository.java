@@ -25,4 +25,19 @@ public class ProdutoRepository {
         }
         return null;
     }
+
+     public Produto produtoBuscadoPorNome(String nome) {
+
+                for (Produto produto : listaProdutos) {
+                    if(produto.nome.equalsIgnoreCase(nome)) {
+
+                        return produto;
+                    } 
+                    
+                    
+                }
+                return null;
+            }
+
+    
 }

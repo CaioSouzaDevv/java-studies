@@ -53,22 +53,16 @@ public class ProdutoService {
     }
 
     public void buscaProduto(String nome) {
-        boolean produtoEncontrado = false;
+        Produto produto = repository.produtoBuscadoPorNome(nome);
+        if (produto == null) {
 
-        for (Produto encontraProduto : repository.listaProdutos) {
-            if (encontraProduto.nome.equalsIgnoreCase(nome)) {
-                mostrarSeparador();
-                System.out.println("Produto encontrado " + "ID: " + encontraProduto.id);
-                System.out.println("Produto encontrado " + "Nome: " + encontraProduto.nome);
-                System.out.println("Produto encontrado " + "Preço: " + encontraProduto.preco);
-                System.out.println("Produto encontrado " + "Quantidade: " + encontraProduto.quantidade);
+            System.out.println("Produto não registrado na base");
+        } else {
 
-                produtoEncontrado = true;
-            }
-        }
-
-        if (!produtoEncontrado) {
-            System.out.println("Produto não encontrado.");
+            System.out.println("Produto encontrado " + "ID: " + produto.id);
+            System.out.println("Produto encontrado " + "Nome: " + produto.nome);
+            System.out.println("Produto encontrado " + "Preço: " + produto.preco);
+            System.out.println("Produto encontrado " + "Quantidade: " + produto.quantidade);
         }
     }
 
