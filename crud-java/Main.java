@@ -85,10 +85,10 @@ public class Main {
 
                         Produto p3 = new Produto();
 
-                        p3.id = recebeIdCadastro;
-                        p3.nome = recebeNomeCadastro;
-                        p3.preco = recebePrecoCadastro;
-                        p3.quantidade = recebeQtdCadastro;
+                        p3.setId(recebeIdCadastro);
+                        p3.setNome(recebeNomeCadastro);
+                        p3.setPreco(recebePrecoCadastro);
+                        p3.setQuantidade(recebeQtdCadastro);
 
                         service.adicionarNovoProduto(p3);
                         break;
