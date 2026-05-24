@@ -83,14 +83,13 @@ public class Main {
                         System.out.println("Digite a quantidade do novo produto");
                         int recebeQtdCadastro = menu.nextInt();
 
-                        Produto p3 = new Produto();
+                        Produto p = new Produto(
+                                recebeIdCadastro,
+                                recebeNomeCadastro,
+                                recebePrecoCadastro,
+                                recebeQtdCadastro);
 
-                        p3.setId(recebeIdCadastro);
-                        p3.setNome(recebeNomeCadastro);
-                        p3.setPreco(recebePrecoCadastro);
-                        p3.setQuantidade(recebeQtdCadastro);
-
-                        service.adicionarNovoProduto(p3);
+                        service.adicionarNovoProduto(p);
                         break;
 
                     case 6:

@@ -37,6 +37,13 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    Produto(int id, String nome, double preco, int quantidade) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
     public void exibirDetalhes() {
         System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
